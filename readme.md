@@ -1,4 +1,4 @@
-#Church Service Creator
+# Church Service Creator
 
 This application will hit Planning Center's API and pull back a list of songs (randomly sorted) that match a theme based on SongSelect's theme list (as well as your own themes manually added into planning center) and the name of the song itself (a fall-back in case there is not a theme entered) not sung in the past X months (for variety). To get ready:
  - Edit the appConfig.json file
