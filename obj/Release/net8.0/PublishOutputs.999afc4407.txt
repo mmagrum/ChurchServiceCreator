@@ -1,0 +1,6 @@
+E:\ServiceCreator\appConfig.json
+E:\ServiceCreator\ChurchServiceCreator.exe
+E:\ServiceCreator\ChurchServiceCreator.dll
+E:\ServiceCreator\ChurchServiceCreator.deps.json
+E:\ServiceCreator\ChurchServiceCreator.runtimeconfig.json
+E:\ServiceCreator\ChurchServiceCreator.pdb

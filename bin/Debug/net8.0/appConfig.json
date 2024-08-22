@@ -1,0 +1,16 @@
+{
+  "appId": "6c5ec3ba035db3578729825fdd3eb38c544110ef2c12eb63ae25ee663dd4f6bd",
+  "secret": "32f29831afb5eb7d29de680fc7243902a7e7eb0d2780057c8f657ad4be0cd8d1",
+  "url": "https://api.planningcenteronline.com/services/v2/",
+  "lastSungMonths": 6,
+  "resultsReturned":  15,
+  "The below is for a future version no need to pay attention": 0,
+  "songTag": [
+    "hymn of ascent",
+    "hymn of praise",
+    "song of praise",
+    "song of preparation",
+    "communion music",
+    "closing hymn"
+  ]
+}

@@ -1,0 +1,15 @@
+E:\Visual Studio\ChurchServiceCreator\bin\Debug\net8.0\ChurchServiceCreator.exe
+E:\Visual Studio\ChurchServiceCreator\bin\Debug\net8.0\ChurchServiceCreator.deps.json
+E:\Visual Studio\ChurchServiceCreator\bin\Debug\net8.0\ChurchServiceCreator.runtimeconfig.json
+E:\Visual Studio\ChurchServiceCreator\bin\Debug\net8.0\ChurchServiceCreator.dll
+E:\Visual Studio\ChurchServiceCreator\bin\Debug\net8.0\ChurchServiceCreator.pdb
+E:\Visual Studio\ChurchServiceCreator\obj\Debug\net8.0\ChurchServiceCreator.GeneratedMSBuildEditorConfig.editorconfig
+E:\Visual Studio\ChurchServiceCreator\obj\Debug\net8.0\ChurchServiceCreator.AssemblyInfoInputs.cache
+E:\Visual Studio\ChurchServiceCreator\obj\Debug\net8.0\ChurchServiceCreator.AssemblyInfo.cs
+E:\Visual Studio\ChurchServiceCreator\obj\Debug\net8.0\ChurchServiceCreator.csproj.CoreCompileInputs.cache
+E:\Visual Studio\ChurchServiceCreator\obj\Debug\net8.0\ChurchServiceCreator.dll
+E:\Visual Studio\ChurchServiceCreator\obj\Debug\net8.0\refint\ChurchServiceCreator.dll
+E:\Visual Studio\ChurchServiceCreator\obj\Debug\net8.0\ChurchServiceCreator.pdb
+E:\Visual Studio\ChurchServiceCreator\obj\Debug\net8.0\ChurchServiceCreator.genruntimeconfig.cache
+E:\Visual Studio\ChurchServiceCreator\obj\Debug\net8.0\ref\ChurchServiceCreator.dll
+E:\Visual Studio\ChurchServiceCreator\bin\Debug\net8.0\appConfig.json
