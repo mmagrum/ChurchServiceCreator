@@ -6,4 +6,4 @@ This application will hit Planning Center's API and pull back a list of songs (r
  - Choose how recent you'd like your last sung date to be by editing _lastSungMonths_
  - If desired, choose how many songs suggestions to return (default 15) with _resultsReturned_
  
-Now you just need to build it and enjoy!
+Now you just need to build it and enjoy! If you do not know how to build the application, just download the release on the right!
