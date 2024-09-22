@@ -39,11 +39,14 @@ if (Topic != null && Config != null)
                 songMatch.songTitle = song.attributes.title;
                 songMatch.author = song.attributes.author;
                 songMatch.themes = song.attributes.themes;
-                string checkperf = (song.attributes.themes ?? "").ToLower();
-                if (!(checkperf.Contains("instrumental") || checkperf.Contains("solo") || checkperf.Contains("choir")))
-                    songOutput.Add(songMatch);
-                else if ((Performance ?? "").ToLower() == "yes")
-                    songOutput.Add(songMatch);
+                if (!(songOutput.Any(x => x.songTitle == songMatch.songTitle && x.themes == songMatch.themes)))
+                {
+                    string checkperf = (song.attributes.themes ?? "").ToLower();
+                    if (!(checkperf.Contains("instrumental") || checkperf.Contains("solo") || checkperf.Contains("choir")))
+                        songOutput.Add(songMatch);
+                    else if ((Performance ?? "").ToLower() == "yes")
+                        songOutput.Add(songMatch);
+                }
             }
         }
         Random rnd = new Random();
