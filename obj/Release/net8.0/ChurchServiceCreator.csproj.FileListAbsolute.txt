@@ -13,3 +13,4 @@ E:\Visual Studio\ChurchServiceCreator\obj\Release\net8.0\ChurchServiceCreator.pd
 E:\Visual Studio\ChurchServiceCreator\obj\Release\net8.0\ChurchServiceCreator.genruntimeconfig.cache
 E:\Visual Studio\ChurchServiceCreator\obj\Release\net8.0\ref\ChurchServiceCreator.dll
 E:\Visual Studio\ChurchServiceCreator\bin\Release\net8.0\appConfig.json
+E:\Visual Studio\ChurchServiceCreator\obj\Release\net8.0\ChurchServiceCreator.sourcelink.json

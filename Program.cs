@@ -8,6 +8,8 @@ var PlanSunday = DateTime.Today.AddDays(14 - (int)DateTime.Today.DayOfWeek).ToSh
 //if (args.Length > 0)
 Console.WriteLine($"This application will give you song suggestions based on a given topic. What topic would you like suggestions for?");
 string? Topic = Console.ReadLine();
+Console.WriteLine($"Also show performance pieces (instrumental/choir/solo)? (Yes - default is no)");
+string? Performance = Console.ReadLine();
 if (Topic != null && Config != null)
 {
     var lastPerformed = DateTime.Today.AddMonths(Config.lastSungMonths * -1);
@@ -20,13 +22,10 @@ if (Topic != null && Config != null)
     var songList = JsonSerializer.Deserialize<Song.Root>(response);
     
     //Check the song theme itself for the theme value (except psalms)
-    if (!Topic.ToLower().Contains("psalm"))
-    {
-        Query = $"songs?per_page=50&where[themes]={Topic}";
-        response = api.Get(Config.url, Config.appId, Config.secret, Query);
-        var songlist2 = JsonSerializer.Deserialize<Song.Root>(response);
-        songList.data.AddRange(songlist2.data);
-    }
+    Query = $"songs?per_page=50&where[themes]={Topic}";
+    response = api.Get(Config.url, Config.appId, Config.secret, Query);
+    var songlist2 = JsonSerializer.Deserialize<Song.Root>(response);
+    songList.data.AddRange(songlist2.data);
     
     if (songList.data.Count > 0)
     {
@@ -40,11 +39,15 @@ if (Topic != null && Config != null)
                 songMatch.songTitle = song.attributes.title;
                 songMatch.author = song.attributes.author;
                 songMatch.themes = song.attributes.themes;
-                songOutput.Add(songMatch);
+                string checkperf = (song.attributes.themes ?? "").ToLower();
+                if (!(checkperf.Contains("instrumental") || checkperf.Contains("solo") || checkperf.Contains("choir")))
+                    songOutput.Add(songMatch);
+                else if ((Performance ?? "").ToLower() == "yes")
+                    songOutput.Add(songMatch);
             }
         }
         Random rnd = new Random();
-        foreach (var song in songOutput.Select(x => new { value = x, order = rnd.Next() }).OrderBy(x => x.order).Select(x => x.value).Take(Config.resultsReturned))
+        foreach (var song in songOutput.Distinct().Select(x => new { value = x, order = rnd.Next() }).OrderBy(x => x.order).Select(x => x.value).Take(Config.resultsReturned))
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(song.songTitle);
