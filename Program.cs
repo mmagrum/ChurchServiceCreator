@@ -36,6 +36,7 @@ if (Topic != null && Config != null)
             {
                 SongMatch songMatch = new SongMatch();
                 songMatch.lastScheduled = song.attributes.last_scheduled_short_dates;
+                songMatch.songId = song.id;
                 songMatch.songTitle = song.attributes.title;
                 songMatch.author = song.attributes.author;
                 songMatch.themes = song.attributes.themes;
@@ -52,11 +53,25 @@ if (Topic != null && Config != null)
         Random rnd = new Random();
         foreach (var song in songOutput.Distinct().Select(x => new { value = x, order = rnd.Next() }).OrderBy(x => x.order).Select(x => x.value).Take(Config.resultsReturned))
         {
+            string lastScheduled = "";
+            if (song.lastScheduled != null)
+            {
+                Query = $"songs/{song.songId}/song_schedules?filter=three_most_recent";
+                response = api.Get(Config.url, Config.appId, Config.secret, Query);
+                var songSchedule = JsonSerializer.Deserialize<SongSchedule.Root>(response);
+                foreach(var s in songSchedule.data)
+                {
+                    lastScheduled += $" {s.attributes.plan_dates} |";
+                }
+                lastScheduled = lastScheduled.TrimEnd('|');
+            }
+            else
+                lastScheduled = "Never";
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(song.songTitle);
             Console.ResetColor();
             Console.WriteLine($"  by {song.author}");
-            Console.WriteLine($"  last sung {song.lastScheduled ?? "Never"}");
+            Console.WriteLine($"  last sung{lastScheduled}");
             Console.WriteLine($"  themes: {song.themes}");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("------------------------------------------------------------");
