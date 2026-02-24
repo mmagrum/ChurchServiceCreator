@@ -7,7 +7,7 @@ using static ChurchServiceCreator.Models.Song;
 
 namespace ChurchServiceCreator.Models
 {
-    internal class SongSchedule
+    public class SongSchedule
     {
         // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
         public class Arrangement

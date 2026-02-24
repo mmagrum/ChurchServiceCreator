@@ -1,6 +1,0 @@
-E:\Matt\Desktop\App\Configuration\appConfig.json
-E:\Matt\Desktop\App\ChurchServiceCreator.exe
-E:\Matt\Desktop\App\ChurchServiceCreator.dll
-E:\Matt\Desktop\App\ChurchServiceCreator.deps.json
-E:\Matt\Desktop\App\ChurchServiceCreator.runtimeconfig.json
-E:\Matt\Desktop\App\ChurchServiceCreator.pdb

@@ -1,9 +1,10 @@
 ﻿using ChurchServiceCreator.Functions;
 using ChurchServiceCreator.Models;
 using System.Text.Json;
+using ChurchServiceCreator;
 
 var cfgFile = File.ReadAllText("appConfig.json");
-var Config = JsonSerializer.Deserialize<appConfig>(cfgFile);
+var Config = JsonSerializer.Deserialize<appConfig>(cfgFile, AppJsonSerializerContext.Default.AppConfig);
 var PlanSunday = DateTime.Today.AddDays(14 - (int)DateTime.Today.DayOfWeek).ToShortDateString();
 //if (args.Length > 0)
 Console.WriteLine($"This application will give you song suggestions based on a given topic. What topic would you like suggestions for?");
@@ -19,12 +20,12 @@ if (Topic != null && Config != null)
     string Query = $"songs?where[title]={Topic}&per_page=50";
     var api = new apiCall();
     var response = api.Get(Config.url, Config.appId, Config.secret, Query);
-    var songList = JsonSerializer.Deserialize<Song.Root>(response);
+    var songList = JsonSerializer.Deserialize<Song.Root>(response, AppJsonSerializerContext.Default.SongRoot);
     
     //Check the song theme itself for the theme value (except psalms)
     Query = $"songs?per_page=50&where[themes]={Topic}";
     response = api.Get(Config.url, Config.appId, Config.secret, Query);
-    var songlist2 = JsonSerializer.Deserialize<Song.Root>(response);
+    var songlist2 = JsonSerializer.Deserialize<Song.Root>(response, AppJsonSerializerContext.Default.SongRoot);
     songList.data.AddRange(songlist2.data);
     
     if (songList.data.Count > 0)
@@ -58,7 +59,7 @@ if (Topic != null && Config != null)
             {
                 Query = $"songs/{song.songId}/song_schedules?filter=three_most_recent";
                 response = api.Get(Config.url, Config.appId, Config.secret, Query);
-                var songSchedule = JsonSerializer.Deserialize<SongSchedule.Root>(response);
+                var songSchedule = JsonSerializer.Deserialize<SongSchedule.Root>(response, AppJsonSerializerContext.Default.SongScheduleRoot);
                 foreach(var s in songSchedule.data)
                 {
                     lastScheduled += $" {s.attributes.plan_dates} |";

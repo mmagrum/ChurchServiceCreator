@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChurchServiceCreator.Models
 {
-    internal class Song
+    public class Song
     {
         // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
         public class Attributes

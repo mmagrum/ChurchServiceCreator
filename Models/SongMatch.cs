@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChurchServiceCreator.Models
 {
-    internal class SongMatch
+    public class SongMatch
     {
         public string songTitle { get; set; }  
         public string author { get; set; }
