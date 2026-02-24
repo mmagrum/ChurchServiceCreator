@@ -3,7 +3,7 @@ name: Native AOT Release
 on:
   push:
     tags:
-      - 'v*'
+      - '**'
   workflow_dispatch:
 
 permissions:
